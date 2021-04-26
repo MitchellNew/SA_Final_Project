@@ -1,0 +1,110 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">SpiderSilk Hospital</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            See Who's Here
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/employee_register">Our Staff<span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="/patient_register">Patients</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sign-In
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item disabled" href="/employee">Employees <span class="sr-only">(current)</span></a>
+              <a class="dropdown-item" href="/patient">Patients</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+{% endblock %}
+{% block form %}
+<form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}
+
+{% block content %}
+    <div class="text-left" style="background: rgb(50, 50, 255)">
+        <h3 class="h3 font-weight-bold text-center" style="color: goldenrod">Welcome to Work</h3>
+        
+            <p style="color: goldenrod">
+                Greetings. Below you will find a sign in form. This is for both current employees, and new hires. If you are a current employee, please enter your name, position, and your hours you will be working. Please disregard the DateHired<br>
+                 field. If you are a new employee, you must fill out the Date_Hired field so the hospital can keep tabs on the hiring dates of all staff.
+            </p>
+    </div>
+
+    <div class="container justify-content-center">
+        <form action = "{{ url_for('addrec') }}" method = "POST">
+            <h3>Employee Sign-In</h3>
+            First_Name<br>
+                <input class="form-control" type="text" name="fn">
+            <br>
+
+            Last_Name<br>
+                <input class="form-control" type="text" name="ln">
+            <br>
+
+            Date_Hired<br>
+                <input class="form-control" type="date" name="dh">
+            <br>
+
+            Date_Working<br>
+                <input class="form-control" type="date" name='dw'>
+            <br>
+
+            Time_In<br>
+                <input class="form-control" type="time" name="ti">
+            <br>
+
+            Time_Out<br>
+                <input class="form-control" type="time" name="to">
+            <br>
+
+            Department<br>
+                <input class="form-control" type="text" name="dpt">
+            <br>
+
+            <input class="btn btn-outline-success" type="submit" name="Submit">
+        </form>
+    </div>
+   <a href = "/">Return to the home page</a>
+
+{% endblock %}

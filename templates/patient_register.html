@@ -1,0 +1,77 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">SpiderSilk Hospital</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            See Who's Here
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/employee_register">Our Staff<span class="sr-only">(current)</span></a>
+            <a class="dropdown-item disabled" href="/patient_register">Patients</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sign-In
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/employee">Employees <span class="sr-only">(current)</span></a>
+              <a class="dropdown-item" href="/patient">Patients</a>
+          </li>
+      </ul>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div style="background-color: cyan;">
+    <h3 class="text-center">Current Patients</h3>
+    <P class="text-center" style="color:goldenrod">Patients staying at the hospital are marked as "In". Those who are only here for a test or check-up are marked as "Out"</P>
+    <p class="text-center" style="color:goldenrod">After the attack by the Imperial Dragon lands in 2020 we had to completely replace and reinforce our patient wards since they were utterly annialated by the fire 
+        and ice element bombings. With emperess Hornet taking extreme measures to ensure the security of the capital, new patients have no need to worry about future 
+        attacks occuring.</p>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th class='d-tablecell'>PatientID</th>
+                <th class='d-tablecell'>First Name</th>
+                <th class='d-tablecell'>Last Name</th>
+                <th class='d-tablecell'>Patient_Status</th>
+                <th class='d-tablecell'>Procedure</th>
+                <th class='d-tablecell'>Procedure Date</th>
+            </tr>
+        </thead>
+    {%for row in rows%}
+        <tr class='d-table-row'>
+            <td class='d-tablecell'>{{ row["PatientID"] }}</td>
+            <td class='d-tablecell'>{{ row["Patient_FName"] }}</td>
+            <td class='d-tablecell'>{{ row["Patient_LName"] }}</td>
+            <td class='d-tablecell'>{{ row["Patient_Status"] }}</td>
+            <td class='d-tablecell'>{{ row["Procedure"] }}</td>
+            <td class='d-tablecell'>{{ row["Procedure_Date"] }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+    <button><a href = "/">Return to the home page</a></button>
+{% endblock %}

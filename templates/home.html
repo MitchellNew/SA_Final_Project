@@ -1,0 +1,56 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">SpiderSilk Hospital</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link disabled" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            See Who's Here
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/employee_register">Our Staff<span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="/patient_register">Patients</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sign-In
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/employee">Employees <span class="sr-only">(current)</span></a>
+              <a class="dropdown-item" href="/patient">Patients</a>
+          </li>
+      </ul>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+    <div style="background:cyan">
+        <h3 class="font-weight-bold text-center" style="color: goldenrod">Welcome to SpiderSilk Hospital</h3>
+        <p class="text-center">
+            SpiderSilk Hospital has serviced the Empress faithfully for the last 300 years. With a war brewing with the Avian Consortium to our north and tensions with the Imperial Dragon Lands to our West <br>
+            ever increasing, Emperess Hornet has granted CEO Kara Arachne's request for us to make an online system to manage our customers and track employee hours. Our website has been in need of major<br>
+            overhauling anyway, so we were more than happy to update it. We ask you respect our patients if you are coming to our main building and stay twenty (20) feet away from our radiology department<br>
+            should you chose to come. The cockroaches are complaining about noise scaring them from their work. Reguardless, enjoy your stay.
+        </p>
+    </div>
+{% endblock %}
