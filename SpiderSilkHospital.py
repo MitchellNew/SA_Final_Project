@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 from flask import render_template
 from flask import request
 import sqlite3 as sql
@@ -60,6 +60,13 @@ def employee_form():
 @app.route('/patient')
 def patient_form():
     return render_template('patient.html')
+
+@app.route('/form/<user>')
+def user_form(user):
+    if user =='employee':
+        return redirect(url_for('employee_form'))
+    else:
+        return redirect(url_for('patient_form'))
 
 @app.route('/employee_register')
 def employee_register():
